@@ -1,0 +1,18 @@
+# gherkin-ai CLI Logs, Telemetry & Secrets
+.ghe/
+.gherkin-ai/
+*.log
+*.jsonl
+telemetry.jsonl
+.env
+.env.local
+.env.*.local
+
+# Dependencies & Testing Artifacts
+node_modules/
+vendor/
+coverage/
+
+# OS Files
+.DS_Store
+Thumbs.db

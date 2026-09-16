@@ -1,0 +1,21 @@
+{
+  "projectName": "cli-adversarial-security-harness",
+  "architecture": "monolith",
+  "stack": {
+    "language": "typescript",
+    "framework": "nestjs",
+    "orm": "prisma",
+    "database": "mysql",
+    "validation": "zod",
+    "auth": "jwt-bcrypt",
+    "messaging": "none",
+    "testing": "vitest"
+  },
+  "rules": {
+    "bcryptCostFactor": 12,
+    "jwtTtlSeconds": 3600,
+    "strictLayerBoundaries": true,
+    "coverageTarget": 85
+  },
+  "outputDir": "./generated-specs"
+}

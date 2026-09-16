@@ -1,0 +1,52 @@
+version: "1.0"
+projectName: cli-adversarial-security-harness
+allowedPaths:
+  - specs/**
+  - tests/**
+  - generated-specs/**
+  - src/**
+  - app/**
+  - public/**
+  - views/**
+  - controllers/**
+  - domain/**
+protectedPaths:
+  - .env*
+  - docker-compose.yml
+  - "**/secrets.*"
+  - node_modules/**
+  - vendor/**
+  - .git/**
+  - .github/workflows/**
+  - terraform/**
+  - kubernetes/**
+maxFilesPerTask: 12
+prohibitedImports:
+  typescript:
+    - express (use NestJS abstractions)
+    - typeorm inside controllers
+requireHumanApprovalOn:
+  - docker-compose.yml
+  - package.json
+  - package-lock.json
+  - yarn.lock
+  - pnpm-lock.yaml
+  - "*.csproj"
+  - pom.xml
+  - build.gradle
+  - requirements.txt
+  - pyproject.toml
+  - go.mod
+  - go.sum
+  - Gemfile
+  - composer.json
+  - composer.lock
+  - .github/workflows/**
+  - .gitlab-ci.yml
+  - Jenkinsfile
+  - terraform/**
+  - "*.tf"
+  - kubernetes/**
+  - helm/**
+  - schema.prisma
+  - ormconfig.json

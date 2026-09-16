@@ -1,0 +1,33 @@
+
+[35m🥒 gherkin-ai CLI v2.6.3[0m
+[90mExecutable Prompt & Contract Generator for AI Coding Agents[0m
+[90mWebsite: https://fennereduardo.com/pages/GherkinIATool/[0m
+
+[36mℹ[0m Preparing AI Agent Implementation Package & Master Prompt...
+[36mℹ[0m ℹ Feature audit tracking is disabled in configuration.
+
+============================================================
+🤖 AI AGENT IMPLEMENTATION PACKAGE GENERATED
+============================================================
+
+📋 Target Feature: Creación de Pedido con Token de Autenticación (Hash: f4221a12)
+📂 Feature File:   features/create_order.feature
+👤 Author / Dev:    Fenner Eduardo González C. <fennereduardo@gmail.com> [via git]
+📜 Domain Contract: N/A
+🔒 Agent Policy:    .ghkgovernance.yaml
+🐳 Docker Sandbox: Supported (node:20-alpine)
+📊 Token Efficiency: ~552 tokens (Optimized 73% via @ pointers & feature slicing)
+📄 Master Prompt:   generated-specs/prompts/implement-master-prompt.md (Hash: prt_d505a4f4)
+🆔 Audit Record:   Disabled (no-audit)
+
+ℹ Note: Master Prompts are intentionally generated in English for optimal LLM BPE token density and agent reasoning precision.
+
+------------------------------------------------------------
+💬 COMPACT AI AGENT PROMPT (ULTRA LOW TOKEN COST):
+------------------------------------------------------------
+
+@.ghkgovernance.yaml @features/create_order.feature
+Impl Creación de Pedido con Token de Autenticación (monolith/typescript/prisma/vitest): 1.Follow contract  2.Adhere to .ghkgovernance.yaml 3.Pure domain core 4.prisma repo & controllers 5.vitest test suite 6.Docker sandbox: `docker compose run --rm app npx vitest run`
+------------------------------------------------------------
+
+[32m✔[0m Implementation Package successfully generated! Prompt saved to: generated-specs/prompts/implement-master-prompt.md
