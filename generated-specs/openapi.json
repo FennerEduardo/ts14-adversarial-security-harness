@@ -1,0 +1,71 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "Creación de Pedido con Token de Autenticación API Specification",
+    "version": "1.0.0",
+    "description": "Auto-generated OpenAPI specification for Creación de Pedido con Token de Autenticación from Gherkin feature spec."
+  },
+  "paths": {
+    "/api/v1/creaci-n-de-pedido-con-token-de-autenticaci-n": {
+      "post": {
+        "summary": "POST /api/v1/creaci-n-de-pedido-con-token-de-autenticaci-n",
+        "operationId": "unknownCreacionDePedidoConTokenDeAutenticacion",
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "requestId": {
+                    "type": "string",
+                    "format": "uuid"
+                  },
+                  "timestamp": {
+                    "type": "string",
+                    "format": "date-time"
+                  },
+                  "payload": {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "id"
+                    ]
+                  }
+                },
+                "required": [
+                  "requestId",
+                  "timestamp",
+                  "payload"
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "securitySchemes": {
+      "bearerAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "JWT"
+      }
+    }
+  }
+}

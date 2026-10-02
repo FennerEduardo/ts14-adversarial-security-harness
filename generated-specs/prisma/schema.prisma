@@ -1,0 +1,53 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model CreacionDePedidoConTokenDeAutenticacion {
+  id String @id @default(uuid())
+  tenantId String @default("default")
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([tenantId])
+}
+
+model OutboxMessage {
+  id          String    @id @default(uuid())
+  eventType   String
+  payload     String
+  occurredOn  DateTime  @default(now())
+  processedOn DateTime?
+  retryCount  Int       @default(0)
+  lastError   String?
+
+  @@index([processedOn, occurredOn])
+}
+
+model ProcessedEvent {
+  eventId      String   @id
+  status       String
+  responseBody String   @default("")
+  processedAt  DateTime @default(now())
+
+  @@index([status, processedAt])
+}
+
+model SagaInstance {
+  id           String   @id
+  sagaType     String
+  entityId     String
+  currentState String
+  metadata     String?
+  errorReason  String?
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+}

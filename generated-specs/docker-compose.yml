@@ -1,0 +1,44 @@
+version: '3.8'
+
+services:
+  # Host Environment SDK Isolation Sandbox
+  app:
+    image: node:20-alpine
+    container_name: cli-adversarial-security-harness-app
+    volumes:
+      - .:/app
+    working_dir: /app
+    environment:
+      - ENVIRONMENT=development
+      - DATABASE_URL=${DATABASE_URL:-mysql://dev_user:dev_password@mysql:5432/cli-adversarial-security-harness_db}
+    ports:
+      - "8000:8000"
+    depends_on:
+      - mysql
+
+  # Database Service (mysql)
+  mysql:
+    image: mysql:8.0
+    container_name: cli-adversarial-security-harness-db
+    restart: always
+    environment:
+      MYSQL_DATABASE: ${MYSQL_DATABASE:-cli-adversarial-security-harness_db}
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD:-root_password}
+      MYSQL_USER: ${MYSQL_USER:-dev_user}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD:-dev_password}
+    ports:
+      - "3306:3306"
+    volumes:
+      - db_data:/var/lib/mysql
+
+  
+
+  # Redis Cache
+  redis:
+    image: redis:7-alpine
+    container_name: cli-adversarial-security-harness-redis
+    ports:
+      - "6379:6379"
+
+volumes:
+  db_data:
