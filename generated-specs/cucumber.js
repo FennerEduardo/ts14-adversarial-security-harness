@@ -2,7 +2,7 @@
 module.exports = {
   default: {
     paths: ['features/**/*.feature'],
-    requireModule: ['ts-node/register'],
+    requireModule: ['tsx/cjs'],
     require: ['test/steps/**/*.ts'],
     strict: false,
     format: ['progress']
