@@ -34,6 +34,14 @@ export class CreacionDePedidoConTokenDeAutenticacionAggregate {
     if (!id || !id.trim()) throw new DomainValidationError('CreacionDePedidoConTokenDeAutenticacion id is required');
   }
 
+  /** Rebuilds an aggregate from persisted state; no events are recorded. */
+  static restore(id: string, state: CreacionDePedidoConTokenDeAutenticacionState, version: number): CreacionDePedidoConTokenDeAutenticacionAggregate {
+    const aggregate = new CreacionDePedidoConTokenDeAutenticacionAggregate(id);
+    aggregate._state = state;
+    aggregate._version = version;
+    return aggregate;
+  }
+
   get state(): CreacionDePedidoConTokenDeAutenticacionState {
     return this._state;
   }

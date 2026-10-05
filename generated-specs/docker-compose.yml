@@ -3,7 +3,7 @@ version: '3.8'
 services:
   # Host Environment SDK Isolation Sandbox
   app:
-    image: node:20-alpine
+    image: node:24-bookworm
     container_name: cli-adversarial-security-harness-app
     volumes:
       - .:/app

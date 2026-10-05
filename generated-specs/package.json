@@ -5,7 +5,8 @@
   "scripts": {
     "start": "node dist/src/main",
     "build": "tsc -p tsconfig.build.json",
-    "test": "jest && cucumber-js"
+    "test": "jest && cucumber-js",
+    "test:integration": "jest -c jest.integration.config.js --runInBand"
   },
   "dependencies": {
     "@nestjs/common": "^11.1.0",
@@ -14,6 +15,11 @@
     "@nestjs/platform-express": "^11.1.0",
     "@nestjs/schedule": "^6.0.0",
     "@prisma/client": "^6.19.0",
+    "pg": "^8.16.0",
+    "amqplib": "^2.1.0",
+    "@opentelemetry/api": "^1.9.0",
+    "@opentelemetry/core": "^2.1.0",
+    "@opentelemetry/sdk-trace-base": "^2.1.0",
     "reflect-metadata": "^0.2.0",
     "rxjs": "^7.8.0",
     "zod": "^4.1.0"
@@ -28,6 +34,7 @@
     "ts-jest": "^29.4.0",
     "tsx": "^4.20.0",
     "typescript": "~6.0.0",
+    "@types/pg": "^8.15.0",
     "@types/express": "^5.0.0",
     "prisma": "^6.19.0"
   }
