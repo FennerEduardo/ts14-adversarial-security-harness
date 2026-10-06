@@ -16,3 +16,18 @@ coverage/
 # OS Files
 .DS_Store
 Thumbs.db
+
+# Build outputs
+target/
+build/
+.gradle/
+**/bin/Debug/
+**/bin/Release/
+**/obj/
+_build/
+deps/
+.dart_tool/
+__pycache__/
+.pytest_cache/
+.next/
+dist/
