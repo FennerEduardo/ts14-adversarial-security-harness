@@ -1,6 +1,6 @@
 import { Injectable, OnModuleDestroy, OnModuleInit } from '@nestjs/common';
 import { PrismaClient } from '@prisma/client';
-import { tenantLocalStorage } from '../infrastructure/multitenancy/tenant.storage';
+import { currentTenant } from '../infrastructure/multitenancy/tenant.storage';
 
 /** Infrastructure models shared by every tenant (outbox, idempotency keys, sagas). */
 const SHARED_MODELS = new Set(['OutboxMessage', 'ProcessedEvent', 'SagaInstance']);
@@ -14,7 +14,7 @@ const BULK_CREATE_OPERATIONS = new Set(['createMany', 'createManyAndReturn']);
 
 type Row = Record<string, unknown>;
 
-/** Adds the current tenant (from AsyncLocalStorage) to every query on tenant-owned models. */
+/** Adds the request's tenant (from the validated token) to every query on tenant-owned models. */
 export function withTenantScope(client: PrismaClient) {
   return client.$extends({
     name: 'tenant-scope',
@@ -22,7 +22,7 @@ export function withTenantScope(client: PrismaClient) {
       $allModels: {
         async $allOperations({ model, operation, args, query }) {
           if (SHARED_MODELS.has(model)) return query(args);
-          const tenantId = tenantLocalStorage.getStore()?.tenantId ?? 'default';
+          const tenantId = currentTenant();
           const scoped = { ...(args as Row) };
           if (FILTERED_OPERATIONS.has(operation)) scoped.where = { ...(scoped.where as Row), tenantId };
           if (operation === 'create') scoped.data = { ...(scoped.data as Row), tenantId };

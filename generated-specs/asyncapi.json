@@ -1,9 +1,9 @@
 {
   "asyncapi": "2.6.0",
   "info": {
-    "title": "Creación de Pedido con Token de Autenticación AsyncAPI Specification",
+    "title": "cli-adversarial-security-harness Events",
     "version": "1.0.0",
-    "description": "Auto-generated AsyncAPI events for Creación de Pedido con Token de Autenticación from Gherkin feature spec."
+    "description": "Events of cli-adversarial-security-harness, merged from 1 feature contract(s) in contracts/."
   },
   "defaultContentType": "application/json",
   "channels": {}

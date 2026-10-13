@@ -1,9 +1,9 @@
 {
   "openapi": "3.0.3",
   "info": {
-    "title": "Creación de Pedido con Token de Autenticación API Specification",
+    "title": "cli-adversarial-security-harness API",
     "version": "1.0.0",
-    "description": "Auto-generated OpenAPI specification for Creación de Pedido con Token de Autenticación from Gherkin feature spec."
+    "description": "Service API of cli-adversarial-security-harness, merged from 1 feature contract(s) in contracts/."
   },
   "paths": {
     "/api/v1/creaci-n-de-pedido-con-token-de-autenticaci-n": {

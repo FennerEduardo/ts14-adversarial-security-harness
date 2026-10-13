@@ -1,0 +1,10 @@
+{
+  "asyncapi": "2.6.0",
+  "info": {
+    "title": "Creación de Pedido con Token de Autenticación AsyncAPI Specification",
+    "version": "1.0.0",
+    "description": "Auto-generated AsyncAPI events for Creación de Pedido con Token de Autenticación from Gherkin feature spec."
+  },
+  "defaultContentType": "application/json",
+  "channels": {}
+}

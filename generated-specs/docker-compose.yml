@@ -9,10 +9,11 @@ services:
       - .:/app
     working_dir: /app
     environment:
-      - ENVIRONMENT=development
-      - DATABASE_URL=${DATABASE_URL:-mysql://dev_user:dev_password@mysql:5432/cli-adversarial-security-harness_db}
+      - NODE_ENV=development
+      - PORT=3000
+      - DATABASE_URL=${DATABASE_URL:-mysql://dev_user:dev_password@mysql:3306/cli-adversarial-security-harness_db}
     ports:
-      - "8000:8000"
+      - "3000:3000"
     depends_on:
       - mysql
 

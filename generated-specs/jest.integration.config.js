@@ -5,4 +5,5 @@ module.exports = {
   roots: ["<rootDir>/test/integration"],
   testMatch: ['**/*.int-spec.ts'],
   testTimeout: 60000,
+  maxWorkers: 1,
 };

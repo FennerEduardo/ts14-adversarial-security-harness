@@ -15,7 +15,7 @@ export interface Topology {
 export function topology(prefix = 'creacion-de-pedido-con-token-de-autenticacion'): Topology {
   return { exchange: `${prefix}.events`, queue: `${prefix}.consumer`, dlx: `${prefix}.dlx`, dlq: `${prefix}.dlq` };
 }
-export const DEFAULT_TOPOLOGY: Topology = {"exchange":"creacion-de-pedido-con-token-de-autenticacion.events","queue":"creacion-de-pedido-con-token-de-autenticacion.consumer","dlx":"creacion-de-pedido-con-token-de-autenticacion.dlx","dlq":"creacion-de-pedido-con-token-de-autenticacion.dlq"};
+export const DEFAULT_TOPOLOGY: Topology = {"exchange":"cli-adversarial-security-harness.events","queue":"cli-adversarial-security-harness.consumer","dlx":"cli-adversarial-security-harness.dlx","dlq":"cli-adversarial-security-harness.dlq"};
 
 /** Topic exchange -> consumer queue, which dead-letters rejected messages to a fanout DLX -> DLQ. */
 export async function declareTopology(channel: Channel, t: Topology = DEFAULT_TOPOLOGY): Promise<void> {

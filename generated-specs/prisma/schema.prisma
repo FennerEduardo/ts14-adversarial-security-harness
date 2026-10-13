@@ -12,7 +12,7 @@ datasource db {
 
 model CreacionDePedidoConTokenDeAutenticacion {
   id String @id @default(uuid())
-  tenantId String @default("default")
+  tenantId String
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
