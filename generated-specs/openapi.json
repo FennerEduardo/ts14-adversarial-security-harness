@@ -6,9 +6,9 @@
     "description": "Service API of cli-adversarial-security-harness, merged from 1 feature contract(s) in contracts/."
   },
   "paths": {
-    "/api/v1/creaci-n-de-pedido-con-token-de-autenticaci-n": {
+    "/api/v1/creacion-de-pedido-con-token-de-autenticacion": {
       "post": {
-        "summary": "POST /api/v1/creaci-n-de-pedido-con-token-de-autenticaci-n",
+        "summary": "POST /api/v1/creacion-de-pedido-con-token-de-autenticacion",
         "operationId": "unknownCreacionDePedidoConTokenDeAutenticacion",
         "security": [
           {

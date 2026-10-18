@@ -58,4 +58,9 @@ describe('CreacionDePedidoConTokenDeAutenticacion HTTP application layer', () =>
     const res = await post(`/api/v1/creacion-de-pedido-con-token-de-autenticacion/${randomUUID()}/no_such_command`, { authorization: token({ [TENANT_CLAIM]: tenant }) });
     expect(res.status).toBe(422);
   });
+
+  it('reports liveness and database readiness without a token', async () => {
+    expect((await fetch(`${base}/health`)).status).toBe(200);
+    expect((await fetch(`${base}/health/ready`)).status).toBe(200);
+  });
 });
