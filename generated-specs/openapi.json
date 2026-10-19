@@ -6,54 +6,124 @@
     "description": "Service API of cli-adversarial-security-harness, merged from 1 feature contract(s) in contracts/."
   },
   "paths": {
-    "/api/v1/creacion-de-pedido-con-token-de-autenticacion": {
+    "/api/v1/creacion-de-pedido-con-token-de-autenticacion/{id}/{command}": {
       "post": {
-        "summary": "POST /api/v1/creacion-de-pedido-con-token-de-autenticacion",
-        "operationId": "unknownCreacionDePedidoConTokenDeAutenticacion",
+        "summary": "Run a domain command on an aggregate",
+        "description": "Runs the command through the runtime command service: the aggregate, its event and the outbox row are written in one transaction, and the outbox relay publishes the event.",
+        "operationId": "executeCreacionDePedidoConTokenDeAutenticacionCommand",
         "security": [
           {
             "bearerAuth": []
           }
         ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "Aggregate id (unique per tenant)",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "command",
+            "in": "path",
+            "required": true,
+            "description": "Domain command",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "process_creacion_de_pedido_con_token_de_autenticacion"
+              ]
+            }
+          },
+          {
+            "name": "Idempotency-Key",
+            "in": "header",
+            "required": false,
+            "description": "Replays with the same key return the first result (200) instead of running the command again",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "traceparent",
+            "in": "header",
+            "required": false,
+            "description": "W3C trace context, propagated to the outbox and the published event",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
         "requestBody": {
-          "required": true,
+          "required": false,
+          "description": "Command payload (any JSON object)",
           "content": {
             "application/json": {
               "schema": {
                 "type": "object",
+                "additionalProperties": true,
                 "properties": {
-                  "requestId": {
-                    "type": "string",
-                    "format": "uuid"
-                  },
-                  "timestamp": {
-                    "type": "string",
-                    "format": "date-time"
-                  },
-                  "payload": {
-                    "type": "object",
-                    "properties": {
-                      "id": {
-                        "type": "string"
-                      }
-                    },
-                    "required": [
-                      "id"
-                    ]
+                  "id": {
+                    "type": "string"
                   }
-                },
-                "required": [
-                  "requestId",
-                  "timestamp",
-                  "payload"
-                ]
+                }
               }
             }
           }
         },
         "responses": {
           "200": {
-            "description": "Success"
+            "description": "Replayed: the same Idempotency-Key was already processed; the first result is returned",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CommandResult"
+                }
+              }
+            }
+          },
+          "202": {
+            "description": "Command accepted: the event was stored with the aggregate and the outbox",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CommandResult"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Missing or invalid bearer token, or no tenant claim",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "A request with the same Idempotency-Key is still in progress",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CommandResult"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Domain validation error (business rule violated or unknown command)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
           }
         }
       }
@@ -64,7 +134,52 @@
       "bearerAuth": {
         "type": "http",
         "scheme": "bearer",
-        "bearerFormat": "JWT"
+        "bearerFormat": "JWT",
+        "description": "HS256 token signed with JWT_SECRET. The tenant comes only from its \"tenant_id\" claim; X-Tenant-Id is never trusted."
+      }
+    },
+    "schemas": {
+      "CommandResult": {
+        "type": "object",
+        "required": [
+          "status",
+          "aggregateId"
+        ],
+        "properties": {
+          "status": {
+            "type": "string",
+            "enum": [
+              "created",
+              "replayed",
+              "in-progress"
+            ]
+          },
+          "aggregateId": {
+            "type": "string"
+          },
+          "eventType": {
+            "type": "string",
+            "nullable": true,
+            "description": "Domain event stored in the outbox (null while in progress)"
+          },
+          "version": {
+            "type": "integer",
+            "nullable": true,
+            "description": "Aggregate version after the command (null while in progress)"
+          }
+        }
+      },
+      "Error": {
+        "type": "object",
+        "required": [
+          "detail"
+        ],
+        "properties": {
+          "detail": {
+            "type": "string",
+            "description": "Human-readable reason (domain rule, missing tenant, ...)"
+          }
+        }
       }
     }
   }
