@@ -5,7 +5,7 @@ import { NestFactory } from '@nestjs/core';
 import type { INestApplication } from '@nestjs/common';
 import { Pool } from 'pg';
 import { AppModule } from '../../src/app.module';
-import { migrate } from '../../src/runtime/schema';
+import { migrate, pgConnectionString } from '../../src/runtime/schema';
 import { signJwt, TENANT_CLAIM } from '../../src/auth/jwt';
 
 const SECRET = 'integration-test-secret-with-32-chars!';
@@ -21,7 +21,7 @@ describe('CreacionDePedidoConTokenDeAutenticacion HTTP application layer', () =>
     fetch(`${base}${path}`, { method: 'POST', headers: { 'content-type': 'application/json', ...headers }, body: JSON.stringify(body) });
 
   beforeAll(async () => {
-    pool = new Pool({ connectionString: process.env.DATABASE_URL });
+    pool = new Pool({ connectionString: pgConnectionString() });
     await migrate(pool);
     app = await NestFactory.create(AppModule, { logger: false });
     await app.listen(0);

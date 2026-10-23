@@ -71,6 +71,7 @@ export function brokerKind(env: NodeJS.ProcessEnv = process.env): string {
   if (env.AMQP_URL) return 'rabbitmq';
   if (env.PUBSUB_PROJECT_ID || env.PUBSUB_EMULATOR_HOST) return 'pubsub';
   if (env.SERVICEBUS_CONNECTION_STRING || env.SERVICEBUS_NAMESPACE) return 'servicebus';
+  if (env.KAFKA_BOOTSTRAP_SERVERS) return 'kafka';
   return DEFAULT_BROKER;
 }
 
@@ -79,6 +80,7 @@ export function brokerConfigured(env: NodeJS.ProcessEnv = process.env): boolean 
   switch (brokerKind(env)) {
     case 'pubsub': return Boolean(env.PUBSUB_PROJECT_ID || env.GOOGLE_CLOUD_PROJECT);
     case 'servicebus': return Boolean(env.SERVICEBUS_CONNECTION_STRING || env.SERVICEBUS_NAMESPACE);
+    case 'kafka': return Boolean(env.KAFKA_BOOTSTRAP_SERVERS);
     default: return Boolean(env.AMQP_URL);
   }
 }
@@ -93,8 +95,10 @@ export async function connectBroker(env: NodeJS.ProcessEnv = process.env): Promi
       return PubSubBroker.fromEnv(env);
     case 'servicebus':
       throw new Error('The Azure Service Bus adapter is not generated: set stack.messaging to "servicebus" and regenerate');
+    case 'kafka':
+      throw new Error('The Kafka adapter is not generated: set stack.messaging to "kafka" and regenerate');
     default:
-      throw new Error(`Unsupported GHK_BROKER: ${kind} (rabbitmq, pubsub, servicebus)`);
+      throw new Error(`Unsupported GHK_BROKER: ${kind} (rabbitmq, pubsub, servicebus, kafka)`);
   }
 }
 

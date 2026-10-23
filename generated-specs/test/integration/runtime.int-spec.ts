@@ -5,7 +5,7 @@ import { randomUUID } from 'crypto';
 import { SpanKind, trace } from '@opentelemetry/api';
 import { BasicTracerProvider, InMemorySpanExporter, SimpleSpanProcessor } from '@opentelemetry/sdk-trace-base';
 import { Pool } from 'pg';
-import { CommandService, InboxConsumer, OutboxRelay, SagaOrchestrator, brokerConfigured, connectBroker, migrate, topology, type Broker, type BrokerMessage, type Topology } from '../../src/runtime/index';
+import { CommandService, InboxConsumer, OutboxRelay, SagaOrchestrator, brokerConfigured, connectBroker, migrate, pgConnectionString, topology, type Broker, type BrokerMessage, type Topology } from '../../src/runtime/index';
 
 const { DATABASE_URL } = process.env;
 if (!DATABASE_URL || !brokerConfigured()) throw new Error('Integration tests need DATABASE_URL and the broker variables (see docs/RUNTIME-KERNEL.md).');
@@ -46,7 +46,7 @@ const receive = async (source: string, expected: number): Promise<BrokerMessage[
 };
 
 beforeAll(async () => {
-  pool = new Pool({ connectionString: DATABASE_URL, max: 20 });
+  pool = new Pool({ connectionString: pgConnectionString(DATABASE_URL), max: 20 });
   broker = await connectBroker();
 });
 

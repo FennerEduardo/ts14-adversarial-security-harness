@@ -3,6 +3,7 @@ import { randomUUID } from 'crypto';
 import { Pool } from 'pg';
 import { DEFAULT_TOPOLOGY, brokerConfigured, connectBroker, type Broker } from './broker';
 import { OutboxRelay } from './outbox-relay';
+import { pgConnectionString } from './schema';
 import { InboxConsumer, type MessageHandler } from './inbox-consumer';
 
 export const PG_POOL = Symbol('PG_POOL');
@@ -31,7 +32,8 @@ export class RuntimeWorker implements OnApplicationBootstrap, OnApplicationShutd
       return;
     }
     this.broker = await connectBroker();
-    await this.broker.declare(DEFAULT_TOPOLOGY);
+    // GHK_DECLARE_TOPOLOGY=false when infrastructure as code owns the topology (least-privilege credentials).
+    if (process.env.GHK_DECLARE_TOPOLOGY !== 'false') await this.broker.declare(DEFAULT_TOPOLOGY);
     const relay = new OutboxRelay(this.pool, await this.broker.publisher(DEFAULT_TOPOLOGY.exchange));
     let running = false;
     this.timer = setInterval(() => {
@@ -84,7 +86,7 @@ export class HealthController {
 @Module({
   controllers: [HealthController],
   providers: [
-    { provide: PG_POOL, useFactory: () => new Pool({ connectionString: process.env.DATABASE_URL }) },
+    { provide: PG_POOL, useFactory: () => new Pool({ connectionString: pgConnectionString() }) },
     { provide: EVENT_HANDLERS, useValue: {} satisfies EventHandlers },
     RuntimeWorker
   ],

@@ -15,6 +15,15 @@ const STATEMENTS: string[] = [
 // CREATE POLICY tenant_isolation ON ghk_aggregates USING (tenant_id = current_setting('app.tenant_id'));
 // and run SET LOCAL app.tenant_id = '<tenant>' at the start of each transaction.
 
+/**
+ * DATABASE_URL for node-postgres with libpq TLS semantics: pg treats sslmode=require as verify-full unless
+ * uselibpqcompat=true, which would reject the private CAs of managed databases (RDS, Cloud SQL, Azure).
+ */
+export function pgConnectionString(url = process.env.DATABASE_URL): string | undefined {
+  if (!url || !/[?&]sslmode=/.test(url) || /[?&]uselibpqcompat=/.test(url)) return url;
+  return `${url}&uselibpqcompat=true`;
+}
+
 /** Validated schema identifier (the tests use one schema per test). */
 export function schemaName(schema = 'public'): string {
   if (!/^[a-z_][a-z0-9_]*$/.test(schema)) throw new Error(`Invalid schema name: ${schema}`);
