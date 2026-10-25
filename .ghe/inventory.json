@@ -1,0 +1,356 @@
+{
+  "version": "2",
+  "cliVersion": "3.2.1",
+  "features": {
+    "features/create_order.feature": {
+      "checksum": "f4221a126b12632adda20aba9751fd09faaf825a705fc2044636c3394acb2500",
+      "contracts": {
+        "contracts/create-order/ADR-CreacionDePedidoConTokenDeAutenticacion.md": "2b240bd05b3a4d012b72e257d8f355cf38b993e80c042e0aa058708c7bb41347",
+        "contracts/create-order/openapi.json": "862ed6ab28fe281a3bb56e54fc50baa04cc17396f69ffe33e0db8ceede9ba08d",
+        "openapi.json": "286a3b85dff69ea7eb9c07582f05d9ad77f28ebf8fdd202b47d657bc1b17171e",
+        "contracts.ts": "fd1cf77acfde77590c69d4d5861eba8a20a475a5e5c41e92fb23852b11b38cd7",
+        "contracts/create-order/asyncapi.json": "6b77f393d240118698d69f809afcb07a035897c9c6d3e8ff7ac0941e64ae86aa",
+        "asyncapi.json": "d3fed117c69e675dd14280ca5a907071e399349be5209da4e7c06722439ea4d4"
+      }
+    }
+  },
+  "artifacts": [
+    {
+      "filePath": ".dockerignore",
+      "type": "test",
+      "checksum": "24a2d166089e691663ae1f8440d87dcff0d08b861e09b4becd5d1c8d048c8fae",
+      "feature": "features/create_order.feature",
+      "generatedAt": "2026-10-25T05:45:30.098Z"
+    },
+    {
+      "filePath": ".env.example",
+      "type": "config",
+      "checksum": "aa6164ed5824470188f5fb874797f21e0b38b284848c564e6d7f537858020c36",
+      "feature": "features/create_order.feature",
+      "generatedAt": "2026-10-25T05:45:30.098Z"
+    },
+    {
+      "filePath": "ADR-001-architecture-decisions.md",
+      "type": "other",
+      "checksum": "2b240bd05b3a4d012b72e257d8f355cf38b993e80c042e0aa058708c7bb41347",
+      "feature": "features/create_order.feature",
+      "generatedAt": "2026-10-25T05:45:30.098Z"
+    },
+    {
+      "filePath": "asyncapi.json",
+      "type": "contract",
+      "checksum": "d3fed117c69e675dd14280ca5a907071e399349be5209da4e7c06722439ea4d4",
+      "feature": "features/create_order.feature",
+      "generatedAt": "2026-10-25T05:45:30.098Z"
+    },
+    {
+      "filePath": "contracts.ts",
+      "type": "contract",
+      "checksum": "fd1cf77acfde77590c69d4d5861eba8a20a475a5e5c41e92fb23852b11b38cd7",
+      "feature": "features/create_order.feature",
+      "generatedAt": "2026-10-25T05:45:30.098Z"
+    },
+    {
+      "filePath": "contracts/create-order/ADR-CreacionDePedidoConTokenDeAutenticacion.md",
+      "type": "other",
+      "checksum": "2b240bd05b3a4d012b72e257d8f355cf38b993e80c042e0aa058708c7bb41347",
+      "feature": "features/create_order.feature",
+      "generatedAt": "2026-10-25T05:45:30.098Z"
+    },
+    {
+      "filePath": "contracts/create-order/asyncapi.json",
+      "type": "contract",
+      "checksum": "6b77f393d240118698d69f809afcb07a035897c9c6d3e8ff7ac0941e64ae86aa",
+      "feature": "features/create_order.feature",
+      "generatedAt": "2026-10-25T05:45:30.098Z"
+    },
+    {
+      "filePath": "contracts/create-order/openapi.json",
+      "type": "openapi",
+      "checksum": "862ed6ab28fe281a3bb56e54fc50baa04cc17396f69ffe33e0db8ceede9ba08d",
+      "feature": "features/create_order.feature",
+      "generatedAt": "2026-10-25T05:45:30.098Z"
+    },
+    {
+      "filePath": "cucumber.js",
+      "type": "test",
+      "checksum": "c26c8fcfc25e83d0713b8d30a381a69d17e7f8ed37100c40d245ffd762600697",
+      "feature": "features/create_order.feature",
+      "generatedAt": "2026-10-25T05:45:30.098Z"
+    },
+    {
+      "filePath": "docker-compose.yml",
+      "type": "config",
+      "checksum": "d64a6502dc0e075a1543e94af9f898dd74ff9397b4463a26279dec8bd2979880",
+      "feature": "features/create_order.feature",
+      "generatedAt": "2026-10-25T05:45:30.098Z"
+    },
+    {
+      "filePath": "Dockerfile",
+      "type": "test",
+      "checksum": "ee4ab0da1eef85e8a03bfda1172eae71a3483c61570b2becb026289f0bac88f2",
+      "feature": "features/create_order.feature",
+      "generatedAt": "2026-10-25T05:45:30.098Z"
+    },
+    {
+      "filePath": "features/create_order.feature",
+      "type": "other",
+      "checksum": "f4221a126b12632adda20aba9751fd09faaf825a705fc2044636c3394acb2500",
+      "feature": "features/create_order.feature",
+      "generatedAt": "2026-10-25T05:45:30.098Z"
+    },
+    {
+      "filePath": "fixtures.ts",
+      "type": "fixture",
+      "checksum": "f1233c97949631851bf2fa305f2126d0901f3be5615ff6992fef926f0adf8632",
+      "feature": "features/create_order.feature",
+      "generatedAt": "2026-10-25T05:45:30.098Z"
+    },
+    {
+      "filePath": "jest.config.js",
+      "type": "test",
+      "checksum": "456021a6d978206c28abfd7b4ae4925a867b1626edd7515309877700831809f4",
+      "feature": "features/create_order.feature",
+      "generatedAt": "2026-10-25T05:45:30.098Z"
+    },
+    {
+      "filePath": "jest.integration.config.js",
+      "type": "test",
+      "checksum": "33884f0f1fdd1199be1d8a790765b6ec5b411aa9df06f28a7bfc94273209eff8",
+      "feature": "features/create_order.feature",
+      "generatedAt": "2026-10-25T05:45:30.098Z"
+    },
+    {
+      "filePath": "openapi.json",
+      "type": "openapi",
+      "checksum": "286a3b85dff69ea7eb9c07582f05d9ad77f28ebf8fdd202b47d657bc1b17171e",
+      "feature": "features/create_order.feature",
+      "generatedAt": "2026-10-25T05:45:30.098Z"
+    },
+    {
+      "filePath": "package.json",
+      "type": "config",
+      "checksum": "26a1788d75496009a389278f80c45fe2973569db28938957a2450b9c1815acec",
+      "feature": "features/create_order.feature",
+      "generatedAt": "2026-10-25T05:45:30.098Z"
+    },
+    {
+      "filePath": "prisma/schema.prisma",
+      "type": "other",
+      "checksum": "d687487679916f154ff551784dbf3ebf5744cccd05010425d0406bb45f376f50",
+      "feature": "features/create_order.feature",
+      "generatedAt": "2026-10-25T05:45:30.098Z"
+    },
+    {
+      "filePath": "prompts/backend-agent.md",
+      "type": "prompt",
+      "checksum": "610fc46568c77313625d10b4fc5e648c0995711420ea8c4bd26df0c219d62382",
+      "feature": "features/create_order.feature",
+      "generatedAt": "2026-10-25T05:45:30.098Z"
+    },
+    {
+      "filePath": "prompts/domain-agent.md",
+      "type": "prompt",
+      "checksum": "c03422dd74acac643b54658544fcbc8e4680d271e1bb37eed50728ca12f1e4a6",
+      "feature": "features/create_order.feature",
+      "generatedAt": "2026-10-25T05:45:30.098Z"
+    },
+    {
+      "filePath": "prompts/qa-agent.md",
+      "type": "prompt",
+      "checksum": "084d12d46a6925c430bc65a12b82cf8a7229b3835a3e85a7b47be00815985979",
+      "feature": "features/create_order.feature",
+      "generatedAt": "2026-10-25T05:45:30.098Z"
+    },
+    {
+      "filePath": "seed.sql",
+      "type": "fixture",
+      "checksum": "cc2bdec7bd925a255c007b944eece0bb03b862e4fbe381a678346880ac9ef0af",
+      "feature": "features/create_order.feature",
+      "generatedAt": "2026-10-25T05:45:30.098Z"
+    },
+    {
+      "filePath": "src/app.module.ts",
+      "type": "test",
+      "checksum": "b97ddd78ed282cfb6305f78464687413893c52832ff7a74cb8dbcb442e346d64",
+      "feature": "features/create_order.feature",
+      "generatedAt": "2026-10-25T05:45:30.098Z"
+    },
+    {
+      "filePath": "src/auth/jwt-tenant.guard.ts",
+      "type": "test",
+      "checksum": "1d0325fc16554059ea85af84e9ae3137b42c101273b3b2c90cab29e578fc87ad",
+      "feature": "features/create_order.feature",
+      "generatedAt": "2026-10-25T05:45:30.098Z"
+    },
+    {
+      "filePath": "src/auth/jwt.ts",
+      "type": "test",
+      "checksum": "07db0c61a52420a9c6a7f8809ef966c8b3f4a51d8d55d20df26a57d0aa366b7a",
+      "feature": "features/create_order.feature",
+      "generatedAt": "2026-10-25T05:45:30.098Z"
+    },
+    {
+      "filePath": "src/creacion-de-pedido-con-token-de-autenticacion/creacion-de-pedido-con-token-de-autenticacion.controller.ts",
+      "type": "test",
+      "checksum": "38a2f3070f9fc5b5a11b43ea1024fcb64cb3d7a472e74c44ba939bc3617988c2",
+      "feature": "features/create_order.feature",
+      "generatedAt": "2026-10-25T05:45:30.098Z"
+    },
+    {
+      "filePath": "src/creacion-de-pedido-con-token-de-autenticacion/creacion-de-pedido-con-token-de-autenticacion.module.ts",
+      "type": "test",
+      "checksum": "280dc4007af72ce6a36853c2f3b77df301f3101c720e069815aa4dd198a6a32d",
+      "feature": "features/create_order.feature",
+      "generatedAt": "2026-10-25T05:45:30.098Z"
+    },
+    {
+      "filePath": "src/creacion-de-pedido-con-token-de-autenticacion/domain/creacion-de-pedido-con-token-de-autenticacion.aggregate.spec.ts",
+      "type": "test",
+      "checksum": "852e8d8b69bd33789ccc6958d6b0a7922b39b28601ce4e8b26c4cdf802ffee76",
+      "feature": "features/create_order.feature",
+      "generatedAt": "2026-10-25T05:45:30.098Z"
+    },
+    {
+      "filePath": "src/creacion-de-pedido-con-token-de-autenticacion/domain/creacion-de-pedido-con-token-de-autenticacion.aggregate.ts",
+      "type": "test",
+      "checksum": "0969faabb9739179cb1ec944ed7a1e151a4cafb0cde32793aeb9c69788fe149b",
+      "feature": "features/create_order.feature",
+      "generatedAt": "2026-10-25T05:45:30.098Z"
+    },
+    {
+      "filePath": "src/infrastructure/multitenancy/tenant.storage.ts",
+      "type": "test",
+      "checksum": "09819f6dfb6c404979fcb90f286c74a398faf0f5adbbe64bb54c17279d3a9d33",
+      "feature": "features/create_order.feature",
+      "generatedAt": "2026-10-25T05:45:30.098Z"
+    },
+    {
+      "filePath": "src/main.ts",
+      "type": "test",
+      "checksum": "a41749b02f03bfb845b683567632ead58f3b3f272b8c13af680b713fa20c4692",
+      "feature": "features/create_order.feature",
+      "generatedAt": "2026-10-25T05:45:30.098Z"
+    },
+    {
+      "filePath": "src/persistence/creaciondepedidocontokendeautenticacion.repository.ts",
+      "type": "other",
+      "checksum": "d708e8c46557dd52aaf6be65e7af4eadab9ce3f6e8beac81988c9fac4f3fcb45",
+      "feature": "features/create_order.feature",
+      "generatedAt": "2026-10-25T05:45:30.098Z"
+    },
+    {
+      "filePath": "src/prisma/prisma.service.ts",
+      "type": "test",
+      "checksum": "d948ce80a568086fb8f9989cc8174634ed6f62ccd0ed7ee8a037ec81ec71eb95",
+      "feature": "features/create_order.feature",
+      "generatedAt": "2026-10-25T05:45:30.098Z"
+    },
+    {
+      "filePath": "src/runtime/broker.ts",
+      "type": "test",
+      "checksum": "f36268aefe0bd036cc14f11cdf953c814bbeb03a34c4f131a1fb9ac7d0ae7ca7",
+      "feature": "features/create_order.feature",
+      "generatedAt": "2026-10-25T05:45:30.098Z"
+    },
+    {
+      "filePath": "src/runtime/command-service.ts",
+      "type": "test",
+      "checksum": "dc9660e27ad308e0ef33cbf2f05f8e5d25d6bc0d03e7ed83d3800e736af9821d",
+      "feature": "features/create_order.feature",
+      "generatedAt": "2026-10-25T05:45:30.098Z"
+    },
+    {
+      "filePath": "src/runtime/inbox-consumer.ts",
+      "type": "test",
+      "checksum": "26d6a1e1a55df645ae981184c67684830220ef6aa62e11385af4e2ca884672ea",
+      "feature": "features/create_order.feature",
+      "generatedAt": "2026-10-25T05:45:30.098Z"
+    },
+    {
+      "filePath": "src/runtime/index.ts",
+      "type": "test",
+      "checksum": "4ebaa60432adad597200b0b234230edd23f26aac818db06c41f0fa71267e48cb",
+      "feature": "features/create_order.feature",
+      "generatedAt": "2026-10-25T05:45:30.098Z"
+    },
+    {
+      "filePath": "src/runtime/otel.ts",
+      "type": "test",
+      "checksum": "7f0b54be0c845870ad15b532151f6a4d7cfd63819904c21b78d5c9cdfff54092",
+      "feature": "features/create_order.feature",
+      "generatedAt": "2026-10-25T05:45:30.098Z"
+    },
+    {
+      "filePath": "src/runtime/outbox-relay.ts",
+      "type": "test",
+      "checksum": "edc22e6f853e656fe848832fa7731b634b4b6857c4027db0d474dda53fdbeb52",
+      "feature": "features/create_order.feature",
+      "generatedAt": "2026-10-25T05:45:30.098Z"
+    },
+    {
+      "filePath": "src/runtime/runtime.module.ts",
+      "type": "test",
+      "checksum": "6af5d453df1d638c7ba8e1ad39fbcea4d4147e91b98791714b3d24f19b225523",
+      "feature": "features/create_order.feature",
+      "generatedAt": "2026-10-25T05:45:30.098Z"
+    },
+    {
+      "filePath": "src/runtime/saga.ts",
+      "type": "test",
+      "checksum": "f6200104da1c78817893f2c6a52e4c58367c83059e423a39e4747a81421e698b",
+      "feature": "features/create_order.feature",
+      "generatedAt": "2026-10-25T05:45:30.098Z"
+    },
+    {
+      "filePath": "src/runtime/schema.ts",
+      "type": "test",
+      "checksum": "0bbb8b670d44558bc5a97691265540380397de23680b4fa9c12eba2f88800255",
+      "feature": "features/create_order.feature",
+      "generatedAt": "2026-10-25T05:45:30.098Z"
+    },
+    {
+      "filePath": "src/runtime/telemetry.ts",
+      "type": "test",
+      "checksum": "4df736766fcbfb38a8e789b5ff315d7b19deab13aed617420a43649eb12137fd",
+      "feature": "features/create_order.feature",
+      "generatedAt": "2026-10-25T05:45:30.098Z"
+    },
+    {
+      "filePath": "test/integration/creacion-de-pedido-con-token-de-autenticacion.http.int-spec.ts",
+      "type": "test",
+      "checksum": "e91ef23c92efba29657adca7a20443a728ca29d17949b727013f5b99d9784e40",
+      "feature": "features/create_order.feature",
+      "generatedAt": "2026-10-25T05:45:30.098Z"
+    },
+    {
+      "filePath": "test/integration/runtime.int-spec.ts",
+      "type": "test",
+      "checksum": "8ba39a8046392e5ee16d30e24c6b8413cd06fd99b1ba3b9183198769c1c3cc03",
+      "feature": "features/create_order.feature",
+      "generatedAt": "2026-10-25T05:45:30.098Z"
+    },
+    {
+      "filePath": "test/steps/creacion-de-pedido-con-token-de-autenticacion.steps.ts",
+      "type": "test",
+      "checksum": "74b576384ab8e462d1b76d5a6a3a16d8eae703de73b8a6f280aaa0148a72905c",
+      "feature": "features/create_order.feature",
+      "generatedAt": "2026-10-25T05:45:30.098Z"
+    },
+    {
+      "filePath": "tsconfig.build.json",
+      "type": "test",
+      "checksum": "cca65441174fe56cd889690dc8fe916f176597b99c8d2fcc29395b987992257e",
+      "feature": "features/create_order.feature",
+      "generatedAt": "2026-10-25T05:45:30.098Z"
+    },
+    {
+      "filePath": "tsconfig.json",
+      "type": "test",
+      "checksum": "3d5f419774b303fe446cb8d9f4ba70123461288769a27275f042de6cb70d52a1",
+      "feature": "features/create_order.feature",
+      "generatedAt": "2026-10-25T05:45:30.098Z"
+    }
+  ],
+  "executions": []
+}

@@ -1,5 +1,6 @@
 # gherkin-ai CLI Logs, Telemetry & Secrets
-.ghe/
+.ghe/*
+!.ghe/inventory.json
 .gherkin-ai/*
 !.gherkin-ai/constitution.yaml
 *.log
