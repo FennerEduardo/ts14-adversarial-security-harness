@@ -5,7 +5,7 @@
     "language": "typescript",
     "framework": "nestjs",
     "orm": "prisma",
-    "database": "mysql",
+    "database": "postgresql",
     "validation": "zod",
     "auth": "jwt-bcrypt",
     "messaging": "none",
